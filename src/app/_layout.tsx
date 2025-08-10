@@ -5,6 +5,7 @@ import {
     useFonts,
 } from '@expo-google-fonts/inter';
 import { Stack } from 'expo-router';
+import { Loading } from '@/components/Loading';
 import { colors } from '@/theme/colors';
 
 export default function Layout() {
@@ -15,7 +16,7 @@ export default function Layout() {
     });
 
     if (!fontsLoaded) {
-        return;
+        return <Loading />;
     }
 
     return (
