@@ -13,6 +13,10 @@ export default function Index() {
                 title="Transação"
                 onPress={() => router.navigate('/transaction/723')}
             />
+            <Button
+                title="Progresso"
+                onPress={() => router.navigate('/in-progress/561')}
+            />
         </View>
     );
 }
