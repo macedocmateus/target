@@ -6,8 +6,12 @@ export default function Index() {
         <View style={{ flex: 1, justifyContent: 'center' }}>
             <Text>Olá, Expo Router</Text>
             <Button
-                title="Ir para Target"
+                title="Nova Meta"
                 onPress={() => router.navigate('/target')}
+            />
+            <Button
+                title="Transação"
+                onPress={() => router.navigate('/transaction/723')}
             />
         </View>
     );
