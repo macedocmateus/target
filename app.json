@@ -2,6 +2,7 @@
   "expo": {
     "name": "target",
     "slug": "target",
+    "scheme": "target",
     "version": "1.0.0",
     "android": {
       "package": "com.mateusmacedo.target",
@@ -15,6 +16,9 @@
       "bundleIdentifier": "com.mateusmacedo.target",
       "supportsTablet": true,
       "icon": "./assets/ios-icon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
