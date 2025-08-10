@@ -1,24 +1,22 @@
 {
-  "expo": {
-    "name": "target",
-    "slug": "target",
-    "scheme": "target",
-    "version": "1.0.0",
-    "android": {
-      "package": "com.mateusmacedo.target",
-      "edgeToEdgeEnabled": true,
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#3d44cd"
-      }
-    },
-    "ios": {
-      "bundleIdentifier": "com.mateusmacedo.target",
-      "supportsTablet": true,
-      "icon": "./assets/ios-icon.png"
-    },
-    "plugins": [
-      "expo-router"
-    ]
-  }
+    "expo": {
+        "name": "target",
+        "slug": "target",
+        "scheme": "target",
+        "version": "1.0.0",
+        "android": {
+            "package": "com.mateusmacedo.target",
+            "edgeToEdgeEnabled": true,
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#3d44cd"
+            }
+        },
+        "ios": {
+            "bundleIdentifier": "com.mateusmacedo.target",
+            "supportsTablet": true,
+            "icon": "./assets/ios-icon.png"
+        },
+        "plugins": ["expo-router"]
+    }
 }
