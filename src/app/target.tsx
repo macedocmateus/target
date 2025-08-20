@@ -1,6 +1,6 @@
-import { router } from 'expo-router';
 import { View } from 'react-native';
 import { Button } from '@/components/Button';
+import { CurrencyInput } from '@/components/CurrencyInput';
 import { Input } from '@/components/Input';
 import { PageHeader } from '@/components/PageHeader';
 
@@ -16,6 +16,7 @@ export default function Target() {
                     label="Nome da Meta"
                     placeholder="Ex: Viagem para praia, Apple Watch"
                 />
+                <CurrencyInput label="Valor alvo" value={0} />
                 <Button title="Salvar" />
             </View>
         </View>
