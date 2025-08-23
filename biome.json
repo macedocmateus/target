@@ -29,6 +29,9 @@
                     "level": "warn",
                     "options": { "allowNoReferrer": true }
                 }
+            },
+            "correctness": {
+                "useExhaustiveDependencies": "warn"
             }
         }
     },
