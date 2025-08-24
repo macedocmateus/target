@@ -15,7 +15,7 @@ export type TargetResponse = {
     updated_at: Date;
 };
 
-export function useTargetDataBase() {
+export function useTargetDatabase() {
     const database = useSQLiteContext();
     async function create(data: TargetCreate) {
         const statement = await database.prepareAsync(
@@ -35,7 +35,9 @@ export function useTargetDataBase() {
              targets.name,
              targets.amount,
              COALESCE(SUM(transactions.amount), 0) AS current,
-             COALESCE((SUM(transactions.amount) / targets.amount) * 100, 0) AS percentage
+             COALESCE((SUM(transactions.amount) / targets.amount) * 100, 0) AS percentage,
+             targets.created_at,
+             targets.updated_at
             FROM targets
             LEFT JOIN transactions ON targets.id = transactions.target_id
             GROUP BY targets.id, targets.name, targets.amount
