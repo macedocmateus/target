@@ -7,7 +7,7 @@ import { Loading } from '@/components/Loading';
 import { PageHeader } from '@/components/PageHeader';
 import { Progress } from '@/components/Progress';
 import { Transaction, type TransactionProps } from '@/components/Transaction';
-import { useTargetDatabase } from '@/database/useTargetDataBase';
+import { useTargetDatabase } from '@/database/useTargetDatabase';
 import { numberToCurrency } from '@/utils/numberToCurrency';
 import { TransactionTypes } from '@/utils/TransactionTypes';
 
@@ -81,7 +81,7 @@ export default function InProgress() {
                 title={details.name}
                 rightButton={{
                     icon: 'edit',
-                    onPress: () => {},
+                    onPress: () => router.navigate(`/target?id=${params.id}`),
                 }}
             />
             <Progress data={details} />

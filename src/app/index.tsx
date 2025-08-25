@@ -6,7 +6,7 @@ import { HomeHeader } from '@/components/HomeHeader';
 import { List } from '@/components/List';
 import { Loading } from '@/components/Loading';
 import { Target, type TargetProps } from '@/components/Target';
-import { useTargetDatabase } from '@/database/useTargetDataBase';
+import { useTargetDatabase } from '@/database/useTargetDatabase';
 import { numberToCurrency } from '@/utils/numberToCurrency';
 
 const summary = {
