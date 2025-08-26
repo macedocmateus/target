@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Alert, View } from 'react-native';
@@ -54,7 +55,9 @@ export default function InProgress() {
                 response.map((item) => ({
                     id: String(item.id),
                     value: numberToCurrency(item.amount),
-                    date: String(item.created_at),
+                    date: dayjs(item.created_at).format(
+                        'DD/MM/YYYY [às] HH:mm',
+                    ),
                     description: item.observation,
                     type:
                         item.amount < 0
