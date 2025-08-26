@@ -16,7 +16,7 @@ import { TransactionTypes } from '@/utils/TransactionTypes';
 export default function InProgress() {
     const params = useLocalSearchParams<{ id: string }>();
     const targetDatabase = useTargetDatabase();
-    const transactionDatabase = useTransactionsDatabase();
+    const transactionsDatabase = useTransactionsDatabase();
 
     const [transactions, setTransactions] = useState<TransactionProps[]>([]);
     const [isFetching, setIsFetching] = useState(true);
@@ -47,7 +47,7 @@ export default function InProgress() {
 
     async function fetchTransactions() {
         try {
-            const response = await transactionDatabase.listByTargetId(
+            const response = await transactionsDatabase.listByTargetId(
                 Number(params.id),
             );
 
@@ -79,6 +79,24 @@ export default function InProgress() {
         setIsFetching(false);
     }
 
+    function handleTransactionRemove(id: string) {
+        Alert.alert('Remover', 'Deseja realmente remover essa transação?', [
+            { text: 'Não', style: 'cancel' },
+            { text: 'Sim', onPress: () => transactionRemove(id) },
+        ]);
+    }
+
+    async function transactionRemove(id: string) {
+        try {
+            await transactionsDatabase.remove(Number(id));
+            fetchData();
+            Alert.alert('Transação', 'Transação removida com sucesso!');
+        } catch (error) {
+            Alert.alert('Erro', 'Não foi possível remover a transação');
+            console.log(error);
+        }
+    }
+
     useFocusEffect(
         useCallback(() => {
             fetchData();
@@ -104,7 +122,10 @@ export default function InProgress() {
                 title="Transações"
                 data={transactions}
                 renderItem={({ item }) => (
-                    <Transaction data={item} onRemove={() => {}} />
+                    <Transaction
+                        data={item}
+                        onRemove={() => handleTransactionRemove(item.id)}
+                    />
                 )}
                 emptyMessage="Nenhuma transação. Toque em nova transação para guardar seu primeiro dinheiro aqui."
             />
